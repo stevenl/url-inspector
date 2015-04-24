@@ -1,0 +1,45 @@
+body {
+    font-family: sans-serif;
+    font-size: small;
+}
+
+h1 {
+    font-family: impact, tahoma, verdana, sans-serif;
+    font-size: xx-large;
+    margin: 20px 6px;
+}
+
+div.section {
+    margin: 12px 6px;
+    display: none;
+}
+
+div.textarea {
+    -moz-appearance: textfield-multiline;
+    -webkit-appearance: textarea;
+    overflow: auto;
+    resize: vertical;
+    border: 1px solid #E0E0E0;
+    padding: 6px;
+    background-color: white;
+}
+
+table {
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+    font-family: sans-serif;
+    font-size: small;
+    /* don't let table extend beyond screen */
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+th, td {
+    border: 1px solid #E0E0E0;
+    padding: 6px;
+    vertical-align: top;
+}
+
+[contentEditable]:focus {
+    outline: 3px solid #5786B7;
+}
