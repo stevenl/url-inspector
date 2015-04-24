@@ -49,11 +49,12 @@ self.port.on("show", function onShow(urlStr) {
 
 function parseUrl(urlStr) {
     // Adaptation of the offficial regex from RFC 3986
-    // 1 = scheme://host:port
-    // 2 = /relative-path
-    // 3 = query
-    // 4 = fragment
-    var re = new RegExp("^((?:[^:/?#]+:)?(?:(?://)?[^/?#]*)?)?([^?#]*)?(?:\\?([^#]*))?(?:#(.*))?");
+    var re = new RegExp(
+          "^((?:[^:/?#]+:)?(?:(?://)?[^/?#]*)?)?" // scheme://host:port
+        + "([^?#]*)?"                             // /relative-path
+        + "(?:\\?([^#]*))?"                       // query
+        + "(?:#(.*))?"                            // fragment
+    );
     var urlArray = re.exec(urlStr);
 
     var url = {
