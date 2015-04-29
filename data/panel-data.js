@@ -1,40 +1,40 @@
 "use strict";
 
+var lastUrlStr;
+var url      = document.getElementById("url");
+var root     = document.getElementById("root");
+var path     = document.getElementById("path");
+var query    = document.getElementById("query");
+var fragment = document.getElementById("fragment");
+
 self.port.on("show", function onShow(urlStr) {
-    var origUrl  = document.getElementById("original-url");
-    var textarea = origUrl.getElementsByClassName("textarea")[0];
-    textarea.innerHTML = urlStr;
-    origUrl.style.display = "block";
+    if (urlStr != lastUrlStr) {
+        setData(urlStr);
+        lastUrlStr = urlStr;
+    }
+});
 
-    var url = parseUrl(urlStr);
-    //console.log(url);
+function setData(urlStr) {
+    setUrl(urlStr);
 
-    if (url.root != null) {
-        var root = document.getElementById("root");
-        var textarea = root.getElementsByClassName("textarea")[0];
-        textarea.innerHTML = url.root;
-        root.style.display = "block";
+    var urlObj = parseUrl(urlStr);
+    //console.log(urlObj);
+
+    setRoot(urlObj.root);
+    setPath(urlObj.path);
+    setQuery(urlObj.query);
+    setFragment(urlObj.fragment);
+}
+
+function setQuery(parameters) {
+    // reset the table before re-populating it
+    var table = query.firstElementChild;
+    while (table.rows.length > 0) {
+        table.deleteRow(-1);
     }
 
-    if (url.path != null) {
-        var path = document.getElementById("path");
-        var textarea = path.getElementsByClassName("textarea")[0];
-        textarea.innerHTML = url.path;
-        path.style.display = "block";
-    }
-
-    if (url.fragment != null) {
-        var fragment = document.getElementById("fragment");
-        var textarea = fragment.getElementsByClassName("textarea")[0];
-        textarea.innerHTML = url.fragment;
-        fragment.style.display = "block";
-    }
-
-    if (url.query != null) {
-        var query = document.getElementById("query")
-        var table = query.getElementsByTagName("table")[0];
-
-        for (var param of url.query) {
+    if (parameters != null) {
+        for (var param of parameters) {
             var row = table.insertRow(-1);
             var key = row.insertCell(0);
             var val = row.insertCell(1);
@@ -45,7 +45,50 @@ self.port.on("show", function onShow(urlStr) {
         }
         query.style.display = "block";
     }
-});
+    else {
+        query.style.display = "none";
+    }
+}
+
+function setUrl(value) {
+    url.firstElementChild.innerHTML = value;
+
+    if (value != null) {
+        url.style.display = "block";
+    } else {
+        url.style.display = "none";
+    }
+}
+
+function setRoot(value) {
+    root.firstElementChild.innerHTML = value;
+
+    if (value != null) {
+        root.style.display = "block";
+    } else {
+        root.style.display = "none";
+    }
+}
+
+function setPath(value) {
+    path.firstElementChild.innerHTML = value;
+
+    if (value != null) {
+        path.style.display = "block";
+    } else {
+        path.style.display = "none";
+    }
+}
+
+function setFragment(value) {
+    fragment.firstElementChild.innerHTML = value;
+
+    if (value != null) {
+        fragment.style.display = "block";
+    } else {
+        fragment.style.display = "none";
+    }
+}
 
 function parseUrl(urlStr) {
     // Adaptation of the offficial regex from RFC 3986
