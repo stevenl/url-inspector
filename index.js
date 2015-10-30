@@ -8,7 +8,7 @@ var panel = Panel({
     width: 400,
     height: 600,
     contentURL: "./panel.html",
-    contentScriptFile: "./panel.js",
+    contentScriptFile: ["./panel.js", "./url.js"],
     onHide: handleHide
 });
 panel.on("show", function() {
