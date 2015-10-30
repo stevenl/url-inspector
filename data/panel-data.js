@@ -17,7 +17,7 @@ self.port.on("show", function onShow(urlStr) {
 function setData(urlStr) {
     setUrl(urlStr);
 
-    var urlObj = parseUrl(urlStr);
+    var urlObj = new Url(urlStr);
     //console.log(urlObj);
 
     setRoot(urlObj.root);
@@ -90,7 +90,7 @@ function setFragment(value) {
     }
 }
 
-function parseUrl(urlStr) {
+var Url = function (urlStr) {
     // Adaptation of the offficial regex from RFC 3986
     var re = new RegExp(
           "^((?:[^:/?#]+:)?(?:(?://)?[^/?#]*)?)?" // scheme://host:port
@@ -100,22 +100,18 @@ function parseUrl(urlStr) {
     );
     var urlArray = re.exec(urlStr);
 
-    var url = {
-        root:     urlArray[1],
-        path:     urlArray[2],
-        query:    urlArray[3],
-        fragment: urlArray[4],
-    };
+    this.root     = urlArray[1];
+    this.path     = urlArray[2];
+    this.query    = urlArray[3];
+    this.fragment = urlArray[4];
 
     // parse the query into an array of tuples
-    if (url.query != null) {
-        var query = url.query.split(/[&;]/);
-        url.query = [];
+    if (this.query != null) {
+        var query = this.query.split(/[&;]/);
+        this.query = [];
         for (var p of query) {
             var param = p.split("=");
-            url.query.push(param);
+            this.query.push(param);
         }
     }
-
-    return url;
 }
