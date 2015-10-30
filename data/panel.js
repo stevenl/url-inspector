@@ -19,6 +19,9 @@ self.port.on("show", function onShow(urlStr) {
 
         lastUrlStr = urlStr;
     }
+
+    var height = document.body.clientHeight + 18;
+    self.port.emit("resize", height);
 });
 
 function setQuery(parameters) {
