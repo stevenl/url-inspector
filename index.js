@@ -5,7 +5,7 @@ var tabs             = require("sdk/tabs");
 
 // Panel
 var panel = Panel({
-    width: 400,
+    width: 720,
     contentURL: "./panel.html",
     contentScriptFile: ["./panel.js", "./url.js"],
     onHide: handleHide
