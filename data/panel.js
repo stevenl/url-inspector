@@ -9,22 +9,17 @@ var fragment = document.getElementById("fragment");
 
 self.port.on("show", function onShow(urlStr) {
     if (urlStr != lastUrlStr) {
-        setData(urlStr);
+        var urlObj = new Url(urlStr);
+
+        setUrl(urlStr);
+        setRoot(urlObj.root);
+        setPath(urlObj.path);
+        setQuery(urlObj.query);
+        setFragment(urlObj.fragment);
+
         lastUrlStr = urlStr;
     }
 });
-
-function setData(urlStr) {
-    setUrl(urlStr);
-
-    var urlObj = new Url(urlStr);
-    //console.log(urlObj);
-
-    setRoot(urlObj.root);
-    setPath(urlObj.path);
-    setQuery(urlObj.query);
-    setFragment(urlObj.fragment);
-}
 
 function setQuery(parameters) {
     // reset the table before re-populating it
