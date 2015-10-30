@@ -18,6 +18,8 @@ panel.on("show", function() {
 // We need to get this information from the content script because
 // we don't have access to the DOM here.
 panel.port.on("resize", function resize(height) {
+    // don't let the panel be too tall - use the scroller
+    if (height > 600) height = 600;
     panel.resize(panel.width, height);
 });
 
