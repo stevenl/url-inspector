@@ -1,20 +1,22 @@
 "use strict";
+var { Panel }        = require("sdk/panel");
+var { ToggleButton } = require("sdk/ui/button/toggle");
+var tabs             = require("sdk/tabs");
 
 // Panel
-var data  = require("sdk/self").data;
-var panel = require("sdk/panel").Panel({
+var panel = Panel({
     width: 400,
     height: 600,
-    contentURL: data.url("panel.html"),
-    contentScriptFile: data.url("panel-data.js")
+    contentURL: "./panel.html",
+    contentScriptFile: "./panel.js",
+    onHide: handleHide
 });
 panel.on("show", function() {
-    var tabs = require("sdk/tabs");
     panel.port.emit("show", tabs.activeTab.url);
 });
 
 // Button
-var button = require('sdk/ui/button/action').ActionButton({
+var button = ToggleButton({
     id: "url-inspector",
     label: "URL Inspector",
     icon: {
@@ -25,5 +27,10 @@ var button = require('sdk/ui/button/action').ActionButton({
     onClick: handleClick
 });
 function handleClick(state) {
-    panel.show();
+    if (state.checked) {
+        panel.show({ position: button });
+    }
+}
+function handleHide() {
+    button.state("window", { checked: false });
 }
