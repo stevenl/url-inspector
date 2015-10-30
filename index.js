@@ -20,9 +20,10 @@ var button = ToggleButton({
     id: "url-inspector",
     label: "URL Inspector",
     icon: {
-      "16": "./icon-16.png",
-      "32": "./icon-32.png",
-      "64": "./icon-64.png"
+      "16": "./img/icon16.png",
+      "19": "./img/icon19.png",
+      "32": "./img/icon32.png",
+      "48": "./img/icon48.png",
     },
     onClick: handleClick
 });
