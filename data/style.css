@@ -33,10 +33,10 @@ table {
     word-wrap: break-word;
 }
 th, td {
-    border: 1px solid #E0E0E0;
-    padding: 6px;
+    border: 1px solid #CCCCCC;
+    padding: 4px;
     vertical-align: top;
 }
 [contentEditable]:focus {
-    outline: 3px solid #5786B7;
+    outline: 3px solid #86B3E3;
 }
