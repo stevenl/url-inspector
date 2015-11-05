@@ -4,31 +4,15 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <div id="title"><img src="img/icon64.png" alt="URL" />&nbsp;inspector</div>
-
-        <div id="url" class="section">
-            URL
-            <div class="textarea" contenteditable></div>
+        <div id="title">
+            <img src="img/icon64.png" alt="URL" />&nbsp;inspector
         </div>
-
-        <div id="root" class="section">
-            Root
-            <div class="textarea" contenteditable></div>
-        </div>
-
-        <div id="path" class="section">
-            Path
-            <div class="textarea" contenteditable></div>
-        </div>
-
-        <div id="query" class="section">
-            Query Parameters
-            <table></table>
-        </div>
-
-        <div id="fragment" class="section">
-            Fragment
-            <div class="textarea" contenteditable></div>
+        <div id="content">
+            <input id="url" type="textarea">
+            <input id="root" type="text">
+            <input id="path" type="text">
+            <table id="query"></table>
+            <input id="fragment" type="text">
         </div>
     </body>
 </html>

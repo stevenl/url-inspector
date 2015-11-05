@@ -26,7 +26,7 @@ self.port.on("show", function onShow(urlStr) {
 
 function setQuery(parameters) {
     // reset the table before re-populating it
-    var table = query.firstElementChild;
+    var table = query;
     while (table.rows.length > 0) {
         table.deleteRow(-1);
     }
@@ -49,7 +49,7 @@ function setQuery(parameters) {
 }
 
 function setUrl(value) {
-    url.firstElementChild.innerHTML = value;
+    url.value = value;
 
     if (value != null) {
         url.style.display = "block";
@@ -59,7 +59,7 @@ function setUrl(value) {
 }
 
 function setRoot(value) {
-    root.firstElementChild.innerHTML = value;
+    root.value = value;
 
     if (value != null) {
         root.style.display = "block";
@@ -69,7 +69,7 @@ function setRoot(value) {
 }
 
 function setPath(value) {
-    path.firstElementChild.innerHTML = value;
+    path.value = value;
 
     if (value != null) {
         path.style.display = "block";
@@ -79,7 +79,7 @@ function setPath(value) {
 }
 
 function setFragment(value) {
-    fragment.firstElementChild.innerHTML = value;
+    fragment.value = value;
 
     if (value != null) {
         fragment.style.display = "block";

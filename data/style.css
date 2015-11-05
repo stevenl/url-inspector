@@ -14,19 +14,12 @@ div#title img {
     padding-bottom: 4px;
 }
 
-div.section {
-    margin: 12px 6px;
+input {
+    font-size: small;
+    width: 100%;
+    /* don't let input box go outside of parent box (because of padding) */
+    box-sizing: border-box;
     display: none;
-}
-
-div.textarea {
-    -moz-appearance: textfield-multiline;
-    -webkit-appearance: textarea;
-    overflow: auto;
-    resize: vertical;
-    border: 1px solid #E0E0E0;
-    padding: 6px;
-    background-color: white;
 }
 
 table {
@@ -44,7 +37,6 @@ th, td {
     padding: 6px;
     vertical-align: top;
 }
-
 [contentEditable]:focus {
     outline: 3px solid #5786B7;
 }
