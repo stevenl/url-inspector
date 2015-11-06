@@ -15,11 +15,14 @@ div#title img {
 }
 
 input {
-    font-size: small;
-    width: 100%;
     /* don't let input box go outside of parent box (because of padding) */
+    width: 100%;
+    margin: 6px;
     box-sizing: border-box;
-    display: none;
+
+    font-size: small;
+
+    display: none; /* set to display by JS */
 }
 
 table {
