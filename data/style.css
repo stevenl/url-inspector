@@ -22,24 +22,16 @@ input {
 
     font-size: small;
 
-    display: none; /* set to display by JS */
+    display: none; /* use JS to set to display */
 }
 
-table {
+#query {
+    display: table; /* use JS to set to table */
     width: 100%;
-    background-color: white;
-    border-collapse: collapse;
-    font-family: sans-serif;
-    font-size: small;
-    /* don't let table extend beyond screen */
-    table-layout: fixed;
-    word-wrap: break-word;
+    margin: 6px;
 }
-th, td {
-    border: 1px solid #CCCCCC;
-    padding: 4px;
-    vertical-align: top;
-}
-[contentEditable]:focus {
-    outline: 3px solid #86B3E3;
+.query-cell {
+    display: table-cell;
+    width: 50%;
+    margin: 0;
 }

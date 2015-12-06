@@ -26,22 +26,31 @@ self.port.on("show", function onShow(urlStr) {
 
 function setQuery(parameters) {
     // reset the table before re-populating it
-    var table = query;
-    while (table.rows.length > 0) {
-        table.deleteRow(-1);
+    while (query.hasChildNodes()) {
+        query.removeChild(query.lastChild);
     }
 
+    // populate the query table
     if (parameters != null) {
         for (var param of parameters) {
-            var row = table.insertRow(-1);
-            var key = row.insertCell(0);
-            var val = row.insertCell(1);
-            key.innerHTML = param[0];
-            val.innerHTML = param[1];
-            key.setAttribute("contenteditable", true);
-            val.setAttribute("contenteditable", true);
+            var qparam = document.createElement("div");
+            qparam.style.display = "table-row";
+            query.appendChild(qparam);
+
+            var qkey       = document.createElement("input");
+            qkey.type      = "text"
+            qkey.value     = param[0];
+            qkey.className = "query-cell";
+
+            var qval       = document.createElement("input");
+            qval.type      = "text"
+            qval.value     = param[1];
+            qval.className = "query-cell";
+
+            qparam.appendChild(qkey);
+            qparam.appendChild(qval);
         }
-        query.style.display = "block";
+        query.style.display = "table";
     }
     else {
         query.style.display = "none";
