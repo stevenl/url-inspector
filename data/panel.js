@@ -2,7 +2,6 @@
 
 var lastUrlStr;
 var url      = document.getElementById("url");
-var root     = document.getElementById("root");
 var path     = document.getElementById("path");
 var query    = document.getElementById("query");
 var fragment = document.getElementById("fragment");
@@ -12,7 +11,6 @@ self.port.on("show", function onShow(urlStr) {
         var urlObj = new Url(urlStr);
 
         setUrl(urlStr);
-        setRoot(urlObj.root);
         setPath(urlObj.path);
         setQuery(urlObj.query);
         setFragment(urlObj.fragment);
@@ -64,16 +62,6 @@ function setUrl(value) {
         url.style.display = "block";
     } else {
         url.style.display = "none";
-    }
-}
-
-function setRoot(value) {
-    root.value = value;
-
-    if (value != null) {
-        root.style.display = "block";
-    } else {
-        root.style.display = "none";
     }
 }
 
