@@ -48,39 +48,27 @@ function setQuery(parameters) {
             qparam.appendChild(qkey);
             qparam.appendChild(qval);
         }
-        query.style.display = "table";
+        query.className = "";
     }
     else {
-        query.style.display = "none";
+        query.className = "hidden";
     }
 }
 
 function setUrl(value) {
     url.value = value;
-
-    if (value != null) {
-        url.style.display = "block";
-    } else {
-        url.style.display = "none";
-    }
 }
 
 function setPath(value) {
     path.value = value;
-
-    if (value != null) {
-        path.style.display = "block";
-    } else {
-        path.style.display = "none";
-    }
 }
 
 function setFragment(value) {
     fragment.value = value;
 
     if (value != null) {
-        fragment.style.display = "block";
+        fragment.className = "";
     } else {
-        fragment.style.display = "none";
+        fragment.className = "hidden";
     }
 }

@@ -15,18 +15,16 @@ div#title img {
 }
 
 input {
-    /* don't let input box go outside of parent box (because of padding) */
     width: 100%;
     margin: 6px;
+    /* don't let input box go outside of parent box (because of padding) */
     box-sizing: border-box;
 
     font-size: small;
-
-    display: none; /* use JS to set to display */
 }
 
 #query {
-    display: table; /* use JS to set to table */
+    display: table;
     width: 100%;
     margin: 6px;
 }
@@ -34,4 +32,8 @@ input {
     display: table-cell;
     width: 50%;
     margin: 0;
+}
+
+.hidden {
+    display: none;
 }
